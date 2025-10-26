@@ -117,3 +117,6 @@ The confusion matrix below provides a deep analysis of the model's performance o
 
 These insights are crucial for future improvement, suggesting that the model would benefit from more data or a more complex architecture (e.g., more layers/neurons or Convolutional layers) to learn the finer features that distinguish these similar-looking digits.
 
+## License
+
+Licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to adapt or extend this codebase for your needs.
