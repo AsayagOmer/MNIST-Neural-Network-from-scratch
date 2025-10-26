@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Analysis Report</title>
+    <!-- Loading Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Using a clean, modern font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans p-4 md:p-8">
+
+    <div class="container mx-auto max-w-5xl">
+
+        <!-- Main Header -->
+        <h1 class="text-3xl md:text-4xl font-bold text-white text-center mb-8">
+            Model Analysis Report: MNIST Digit Recognizer
+        </h1>
+
+        <!-- Section 1: The Confusion Matrix -->
+        <div class="bg-gray-800 rounded-lg shadow-xl p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-white text-center mb-4">Confusion Matrix (Validation Set)</h2>
+
+            <!--
+                This will display the image you uploaded.
+                Make sure 'image_4935a7.png' is in the same folder as this HTML file.
+            -->
+            <img src="image_4935a7.png"
+                 alt="Confusion Matrix for the MNIST model"
+                 class="rounded-lg shadow-md w-full max-w-2xl mx-auto border-2 border-gray-700"
+                 onerror="this.alt='Failed to load confusion matrix image. Please ensure image_4935a7.png is in the same folder.'; this.style.display='none';">
+
+            <p class="text-center text-gray-400 mt-4 italic">
+                This chart shows <b>where</b> the model is succeeding and where it is getting confused.
+            </p>
+        </div>
+
+        <!-- Section 2: Analysis in two columns -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Card 1: Error Types -->
+            <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-700 pb-2">
+                    Type I and Type II Errors
+                </h3>
+
+                <h4 class="text-xl font-semibold text-blue-300 mt-4">Type I Error (False Positive)</h4>
+                <p class="mb-4 text-gray-300 leading-relaxed">
+                    A "false alarm." This is when the model <b>incorrectly predicts</b> a class.
+                    <br>
+                    <strong>Chart Example:</strong> Looking at the column for "Predicted Label = 4", the model predicted '4' when the <em>true label</em> was '9' (16 times). This is a Type I error (a false positive) for the '4' class.
+                </p>
+
+                <h4 class="text-xl font-semibold text-blue-300 mt-4">Type II Error (False Negative)</h4>
+                <p class="text-gray-300 leading-relaxed">
+                    A "miss." This is when the model *fails to predict* the correct class.
+                    <br>
+                    <strong>Chart Example:</strong> Looking at the row for "True Label = 9", the model failed to identify the '9' and instead predicted '4' (16 times). This is a Type II error (a miss) for the '9' class.
+                </p>
+            </div>
+
+            <!-- Card 2: Strong Conclusions -->
+            <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                <h3 class="text-2xl font-semibold text-white mb-4 border-b border-gray-700 pb-2">
+                    Strong Conclusions from the Chart
+                </h3>
+
+                <ol class="list-decimal list-inside space-y-4 text-gray-300 leading-relaxed">
+                    <li>
+                        <strong>The model is generally strong but has clear weaknesses.</strong> The high numbers on the diagonal (e.g., '0' correct 100 times, '1' correct 104 times) show it performs well on most digits.
+                    </li>
+                    <li>
+                        <strong>The model's single biggest problem is confusing '9' and '4'.</strong>
+                        The largest single error is predicting '4' when the true digit was '9' (16 times). The second-largest is predicting '9' when the true digit was '4' (10 times).
+                    </li>
+                    <li>
+                        <strong>The digit '2' is also problematic.</strong> The model struggles with '2', confusing it most often with '3' (9 times), but also scattering errors across '4', '6', '7', and '8'.
+                    </li>
+                    <li>
+                        <strong>'0' and '1' are the best-performing classes.</strong> The model has almost no trouble identifying '0' and '1', with very few false positives or false negatives.
+                    </li>
+                </ol>
+            </div>
+
+        </div> <!-- End of grid -->
+
+    </div> <!-- End of container -->
+
+</body>
+</html>

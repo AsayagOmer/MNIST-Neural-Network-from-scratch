@@ -1,0 +1,20 @@
+# --- Data Files ---
+# ignore 'csv' files.
+*.csv
+*.zip
+
+# --- Environment & Secrets ---
+# ignore directory.
+venv/
+.venv/
+
+# Ignore the environment variables file
+.env
+
+# --- Python Cache ---
+__pycache__/
+*.pyc
+
+# --- IDE / OS Specific ---
+# ignore .idea
+.idea/

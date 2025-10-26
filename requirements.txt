@@ -1,0 +1,7 @@
+numpy
+pandas
+matplotlib
+kaggle
+python-dotenv
+# needed a Kaggle API key.
+# View the README.
