@@ -16,8 +16,17 @@ The key feature of this project is that it is built **entirely from scratch usin
 
 This project is a practical application of the core mathematics that power all deep learning models:
 
-  * **Forward Propagation:** Implementing the flow of data through the network ($Z^{[1]} = W^{[1]}X + b^{[1]}$, $A^{[1]} = g_{\text{ReLU}}(Z^{[1]})$).
-  * **Backward Propagation (Backpropagation):** Calculating the gradients (derivatives) of the loss function with respect to every weight and bias in the network ($dZ^{[2]}, dW^{[2]}, db^{[2]}, dZ^{[1]}, dW^{[1]}, db^{[1]}$).
+* **Forward Propagation:** Implementing the flow of data through the network:
+    $$Z^{[1]} = W^{[1]}X + b^{[1]}$$
+    $$A^{[1]} = g_{\text{ReLU}}(Z^{[1]})$$
+
+* **Backward Propagation (Backpropagation):** Calculating the gradients (derivatives) of the loss function with respect to every weight and bias in the network:
+    $$dZ^{[2]} = A^{[2]} - Y$$
+    $$dW^{[2]} = \frac{1}{m} dZ^{[2]} A^{[1]T}$$
+    $$dB^{[2]} = \frac{1}{m} \sum dZ^{[2]}$$
+    $$dZ^{[1]} = W^{[2]T} dZ^{[2]} \cdot g^{[1]\prime}(Z^{[1]})$$
+    $$dW^{[1]} = \frac{1}{m} dZ^{[1]} X^{T}$$
+    $$dB^{[1]} = \frac{1}{m} \sum dZ^{[1]}$$
   * **Gradient Descent:** Using the calculated gradients to iteratively update the model's parameters and "learn" from the data ($\alpha$ = learning rate).
   * **Activation Functions:** Implementing and understanding the role of `ReLU` (for hidden layers) and `Softmax` (for multi-class classification output).
   * **Linear Algebra:** Heavy use of matrix and vector operations (dot products, transposition, summation) via NumPy, which is the foundation of efficient neural network computation.
@@ -107,4 +116,4 @@ The confusion matrix below provides a deep analysis of the model's performance o
 3.  **Other Problem Areas:** The digit '2' also shows some confusion, being mistaken for '3', '8', and other digits.
 
 These insights are crucial for future improvement, suggesting that the model would benefit from more data or a more complex architecture (e.g., more layers/neurons or Convolutional layers) to learn the finer features that distinguish these similar-looking digits.
->>>>>>> 450ff20 (Initial commit: MNIST Neural Network from scratch)
+
