@@ -6,7 +6,7 @@ Implementing a Neural Network from scratch (NumPy) to demonstrate a core underst
 
 # MNIST Digit Recognizer: Neural Network from Scratch (NumPy)
 
-## 1\. Project Overview`
+## 1\. Project Overview
 
 This project is a complete implementation of a simple 2-layer Neural Network to recognize handwritten digits from the famous MNIST dataset.
 
